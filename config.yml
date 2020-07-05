@@ -12,9 +12,13 @@ pipeline:
     max_ngram: 4
   - name: DIETClassifier
     epochs: 100
+    entity_recognition: False
   - name: EntitySynonymMapper
   - name: ResponseSelector
     epochs: 100
+  - name: CustomEntityExtractor.LookupExtractor
+    entities: ["pokemon_name"]
+    files_path: ["data/pokenames.txt"]
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
